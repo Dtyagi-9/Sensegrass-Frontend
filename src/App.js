@@ -5,6 +5,7 @@ import logo from "./images/LOGO.svg";
 import "./style/App.scss";
 import LoginForm from "./components/Login/login";
 import SignupForm from "./components/Signup/signup";
+import Iot from "./components/Iot/Iot";
 import { Route } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
@@ -55,6 +56,9 @@ class App extends Component {
               </Route>
               <Route path="/signup">
                 <SignupForm email={this.state.signupEmail} />
+              </Route>
+              <Route path="/Iot">
+                <Iot email={this.state.signupEmail} />
               </Route>
             </div>
           </div>
