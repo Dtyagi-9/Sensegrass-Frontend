@@ -110,8 +110,6 @@ class IotForm extends Component {
                   NEXT
                 </Button>
               </div>
-
-
             </Form>
           </Grid.Column>
         </Grid>
