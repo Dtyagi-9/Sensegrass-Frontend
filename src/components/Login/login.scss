@@ -1,4 +1,3 @@
-
 // Variables
 @import "../../style/common/variables.scss";
 // Typeface
@@ -88,3 +87,31 @@ input:focus {
 .padit {
   padding: 2rem !important;
 }
+
+// .material-input {
+//   border: none !important;
+//   outline: none !important;
+// }
+// .material-input:focus {
+//   border: none !important;
+//   outline: none !important;
+// }
+
+.MuiOutlinedInput-root {
+  border: none !important;
+  outline: none !important;
+  input {
+    border: none !important;
+    outline: none !important;
+  }
+}
+
+// .MuiOutlinedInput-root:focus {
+//   border: 1px solid #67bc46 !important;
+//   outline: 1px solid #67bc46 !important;
+// }
+
+// .Mui-focused {
+//   border: 1px solid #67bc46 !important;
+//   outline: 1px solid #67bc46 !important;
+// }

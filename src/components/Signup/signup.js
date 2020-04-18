@@ -9,7 +9,16 @@ class SelectField extends Component {
     this.emailLabel = createRef(null);
     this.passwordLabel = createRef(null);
     this.setPasswordLabel = createRef(null);
+    this.state = { signUpEmail: "" };
   }
+
+  componentDidMount() {
+    this.setState({ signUpEmail: this.props.email });
+  }
+
+  handleChange = e => {
+    this.setState({ signUpEmail: e.target.value });
+  };
 
   handleBack = () => {
     this.props.history.goBack();
@@ -54,7 +63,8 @@ class SelectField extends Component {
                 type="email"
                 onFocus={this.handleEmailFocus}
                 onBlur={this.handleEmailBlur}
-                value={this.props.email}
+                value={this.state.signUpEmail}
+                onChange={this.handleChange}
               />
               <p ref={this.emailLabel} className="label"></p>
               <div className="password">

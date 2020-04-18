@@ -1,18 +1,38 @@
 import React, { Component, createRef } from "react";
-import { Button, Form, Grid, Header, Checkbox } from "semantic-ui-react";
+import { Button, Form, Grid, Header, Checkbox, Icon } from "semantic-ui-react";
+import TextField from "@material-ui/core/TextField";
 import "./login.scss";
 import { Link, withRouter } from "react-router-dom";
-
+import InputAdornment from "@material-ui/core/InputAdornment";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import FormControl from "@material-ui/core/FormControl";
+import Input from "@material-ui/core/Input";
+import FilledInput from "@material-ui/core/FilledInput";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import InputLabel from "@material-ui/core/InputLabel";
 class LoginForm extends Component {
   constructor() {
     super();
     this.state = {
-      signupEmail: ""
+      signupEmail: "",
+      showPassword: false,
+      password: ""
     };
     this.emailLabel = createRef(null);
     this.passwordLabel = createRef(null);
     this.signupEmail = createRef(null);
   }
+
+  handleClickShowPassword = () => {
+    this.setState({ showPassword: !this.state.showPassword });
+  };
+
+  handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
 
   handleChange = e => {
     this.setState({
@@ -40,6 +60,7 @@ class LoginForm extends Component {
   handlePasswordBlur = e => (this.passwordLabel.current.innerText = "");
 
   render() {
+    console.log(this.state);
     return (
       <>
         <Grid
@@ -53,16 +74,37 @@ class LoginForm extends Component {
               LOGIN TO SG ACCOUNT
             </Header>
             <Form size="large">
-              <Form.Input
+              {/* <Form.Input
                 fluid
                 placeholder="farmer@gmail.com"
                 type="email"
                 onFocus={this.handleEmailFocus}
                 onBlur={this.handleEmailBlur}
+              /> */}
+              {/* <TextField
+                id="outlined-required"
+                label="Email"
+                placeholder="farmer@gmail.com"
+                variant="outlined"
+                fullWidth
+                onFocus={this.handleEmailFocus}
+                onBlur={this.handleEmailBlur}
+                size="medium"
+                className="material-input"
+              /> */}
+              <TextField
+                id="outlined-multiline-flexible"
+                label="Email"
+                variant="outlined"
+                onFocus={this.handleEmailFocus}
+                onBlur={this.handleEmailBlur}
+                fullWidth
+                placeholder="farmer@gmail.com"
               />
+
               <p ref={this.emailLabel} className="label"></p>
               <div className="password">
-                <Form.Input
+                {/* <Form.Input
                   fluid
                   placeholder="Password"
                   type="password"
@@ -70,7 +112,59 @@ class LoginForm extends Component {
                   onBlur={this.handlePasswordBlur}
                   icon="eye"
                   onClick={this.handleShowPassword}
+                /> */}
+                <TextField
+                  id="outlined-multiline-flexible"
+                  label="Password"
+                  variant="outlined"
+                  type="password"
+                  onBlur={this.handlePasswordBlur}
+                  onFocus={this.handlePasswordFocus}
+                  fullWidth
+                  placeholder="Password"
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={this.handleClickShowPassword}
+                        onMouseDown={this.handleMouseDownPassword}
+                      >
+                        {this.state.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
                 />
+                {/* <FormControl>
+                  <InputLabel htmlFor="standard-adornment-password">
+                    Password
+                  </InputLabel>
+                  <Input
+                    id="standard-adornment-password"
+                    type={this.state.showPassword ? "text" : "password"}
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    name="password"
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={this.handleClickShowPassword}
+                          onMouseDown={this.handleMouseDownPassword}
+                        >
+                          {this.state.showPassword ? (
+                            <Visibility />
+                          ) : (
+                            <VisibilityOff />
+                          )}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl> */}
                 {/* <Icon name="eye" className="icon" color="black" /> */}
               </div>
               <p ref={this.passwordLabel} className="label"></p>
