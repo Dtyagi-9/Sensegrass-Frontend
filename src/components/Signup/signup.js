@@ -2,6 +2,8 @@ import React, { Component, createRef } from "react";
 import { Button, Form, Grid, Header, Checkbox } from "semantic-ui-react";
 import "./signup.scss";
 import { Link, withRouter } from "react-router-dom";
+import TextField from "@material-ui/core/TextField";
+import Password from "../Login/password";
 
 class SelectField extends Component {
   constructor() {
@@ -57,40 +59,44 @@ class SelectField extends Component {
               ENTER YOUR DETAILS
             </Header>
             <Form size="large">
-              <Form.Input
-                fluid
-                placeholder="Username"
-                type="email"
+              <TextField
+                id="outlined-multiline-flexible"
+                label="Email"
+                variant="outlined"
                 onFocus={this.handleEmailFocus}
                 onBlur={this.handleEmailBlur}
-                value={this.state.signUpEmail}
-                onChange={this.handleChange}
+                fullWidth
+                placeholder="farmer@gmail.com"
               />
               <p ref={this.emailLabel} className="label"></p>
               <div className="password">
-                <Form.Input
-                  fluid
-                  placeholder="Set Password"
-                  type="password"
-                  onFocus={this.handlePasswordFocus}
+                <Password
                   onBlur={this.handlePasswordBlur}
-                  icon="eye"
-                  onClick={this.handleShowPassword}
+                  onFocus={this.handlePasswordFocus}
                 />
                 <p ref={this.passwordLabel} className="label"></p>
-                <Form.Input
-                  fluid
-                  placeholder="Confirm Password"
-                  type="password"
-                  onFocus={this.handleSetPasswordFocus}
+                <Password
                   onBlur={this.handleSetPasswordBlur}
-                  icon="eye"
-                  onClick={this.handleShowPassword}
+                  onFocus={this.handleSetPasswordFocus}
+                  name={"Confirm Password"}
                 />
-                {/* <Icon name="eye" className="icon" color="black" /> */}
               </div>
               <p ref={this.setPasswordLabel} className="label"></p>
-              <Form.Input fluid placeholder="Phone number" />
+
+              <Form.Input
+                fluid
+                placeholder="Phone number"
+                className="contact"
+              />
+
+              {/* <div className="contact">
+                <Form.Input
+                  fluid
+                  placeholder="Phone number"
+                  name="contact"
+                  fullWidth
+                />
+              </div> */}
               <div className="submit-div flex end">
                 <Button
                   fluid
