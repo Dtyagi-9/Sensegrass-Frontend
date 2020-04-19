@@ -1,18 +1,9 @@
 import React, { Component, createRef } from "react";
-import { Button, Form, Grid, Header, Checkbox, Icon } from "semantic-ui-react";
+import { Button, Form, Grid, Header } from "semantic-ui-react";
 import TextField from "@material-ui/core/TextField";
 import "./Iot.scss";
-import { Link, withRouter } from "react-router-dom";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import FormControl from "@material-ui/core/FormControl";
-import Input from "@material-ui/core/Input";
-import FilledInput from "@material-ui/core/FilledInput";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import InputLabel from "@material-ui/core/InputLabel";
+import { withRouter } from "react-router-dom";
+
 class IotForm extends Component {
   constructor() {
     super();
