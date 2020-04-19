@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-// import logo from './logo.svg';
 import "semantic-ui-css/semantic.min.css";
 import logo from "./images/LOGO.svg";
 import "./style/App.scss";
 import LoginForm from "./components/Login/login";
 import SignupForm from "./components/Signup/signup";
 import Iot from "./components/Iot/Iot";
-import { Route } from "react-router-dom";
+import Errorpage from "./components/Errorpage/Errorpage";
+import { Route , Switch } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
@@ -51,6 +51,7 @@ class App extends Component {
               </div>
             </div>
             <div className="formsection">
+            <Switch>
               <Route path="/" exact>
                 <LoginForm updateEmail={this.updateEmail} />{" "}
               </Route>
@@ -60,6 +61,10 @@ class App extends Component {
               <Route path="/Iot">
                 <Iot email={this.state.signupEmail} />
               </Route>
+              <Route path="/*">
+                <Errorpage email={this.state.signupEmail} />
+              </Route>
+              </Switch>
             </div>
           </div>
           <div className="imagesection">{/* <p></p> */}</div>
