@@ -13,6 +13,8 @@ import Input from "@material-ui/core/Input";
 import FilledInput from "@material-ui/core/FilledInput";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputLabel from "@material-ui/core/InputLabel";
+import InputAdornments from "./password";
+import Password from "./password";
 class LoginForm extends Component {
   constructor() {
     super();
@@ -74,24 +76,6 @@ class LoginForm extends Component {
               LOGIN TO SG ACCOUNT
             </Header>
             <Form size="large">
-              {/* <Form.Input
-                fluid
-                placeholder="farmer@gmail.com"
-                type="email"
-                onFocus={this.handleEmailFocus}
-                onBlur={this.handleEmailBlur}
-              /> */}
-              {/* <TextField
-                id="outlined-required"
-                label="Email"
-                placeholder="farmer@gmail.com"
-                variant="outlined"
-                fullWidth
-                onFocus={this.handleEmailFocus}
-                onBlur={this.handleEmailBlur}
-                size="medium"
-                className="material-input"
-              /> */}
               <TextField
                 id="outlined-multiline-flexible"
                 label="Email"
@@ -104,68 +88,10 @@ class LoginForm extends Component {
 
               <p ref={this.emailLabel} className="label"></p>
               <div className="password">
-                {/* <Form.Input
-                  fluid
-                  placeholder="Password"
-                  type="password"
-                  onFocus={this.handlePasswordFocus}
-                  onBlur={this.handlePasswordBlur}
-                  icon="eye"
-                  onClick={this.handleShowPassword}
-                /> */}
-                <TextField
-                  id="outlined-multiline-flexible"
-                  label="Password"
-                  variant="outlined"
-                  type="password"
+                <Password
                   onBlur={this.handlePasswordBlur}
                   onFocus={this.handlePasswordFocus}
-                  fullWidth
-                  placeholder="Password"
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={this.handleClickShowPassword}
-                        onMouseDown={this.handleMouseDownPassword}
-                      >
-                        {this.state.showPassword ? (
-                          <Visibility />
-                        ) : (
-                          <VisibilityOff />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  }
                 />
-                {/* <FormControl>
-                  <InputLabel htmlFor="standard-adornment-password">
-                    Password
-                  </InputLabel>
-                  <Input
-                    id="standard-adornment-password"
-                    type={this.state.showPassword ? "text" : "password"}
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    name="password"
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={this.handleClickShowPassword}
-                          onMouseDown={this.handleMouseDownPassword}
-                        >
-                          {this.state.showPassword ? (
-                            <Visibility />
-                          ) : (
-                            <VisibilityOff />
-                          )}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl> */}
-                {/* <Icon name="eye" className="icon" color="black" /> */}
               </div>
               <p ref={this.passwordLabel} className="label"></p>
               <div className="submit-div flex end">
