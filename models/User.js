@@ -11,11 +11,22 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    minlength: 7,
+      validator(value) {
+          if(value.toLowerCase().includes("password")){
+          throw new Error('Password contains "password" ')
+          }
+      }
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    validator(value) {
+      if(!validate.isEmail(value)){
+          throw new Error('Invalid Email')
+      }
+  }
   }
 });
 
