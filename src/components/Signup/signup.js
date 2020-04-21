@@ -4,6 +4,7 @@ import "./signup.scss";
 import { Link, withRouter } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Password from "../Login/password";
+import Logo from "../common/Logo";
 
 class SelectField extends Component {
   constructor() {
@@ -48,48 +49,51 @@ class SelectField extends Component {
   render() {
     return (
       <>
-        <Grid
-          textAlign="center"
-          style={{ marginTop: "6rem" }}
-          verticalAlign="middle"
-          className="padit"
-        >
-          <Grid.Column style={{ maxWidth: 350 }}>
-            <Header as="h3" color="grey" textAlign="left">
-              ENTER YOUR DETAILS
-            </Header>
-            <Form size="large">
-              <TextField
-                id="outlined-multiline-flexible"
-                label="Email"
-                variant="outlined"
-                onFocus={this.handleEmailFocus}
-                onBlur={this.handleEmailBlur}
-                fullWidth
-                placeholder="farmer@gmail.com"
-              />
-              <p ref={this.emailLabel} className="label"></p>
-              <div className="password">
-                <Password
-                  onBlur={this.handlePasswordBlur}
-                  onFocus={this.handlePasswordFocus}
-                />
-                <p ref={this.passwordLabel} className="label"></p>
-                <Password
-                  onBlur={this.handleSetPasswordBlur}
-                  onFocus={this.handleSetPasswordFocus}
-                  name={"Confirm Password"}
-                />
-              </div>
-              <p ref={this.setPasswordLabel} className="label"></p>
+        <div className="container-second">
+          <div className="formcontainer-second">
+            <Logo />
+            <Grid
+              textAlign="center"
+              style={{ marginTop: "6rem" }}
+              verticalAlign="middle"
+              className="padit"
+            >
+              <Grid.Column style={{ maxWidth: 350 }}>
+                <Header as="h3" color="grey" textAlign="left">
+                  ENTER YOUR DETAILS
+                </Header>
+                <Form size="large">
+                  <TextField
+                    id="outlined-multiline-flexible"
+                    label="Email"
+                    variant="outlined"
+                    onFocus={this.handleEmailFocus}
+                    onBlur={this.handleEmailBlur}
+                    fullWidth
+                    placeholder="farmer@gmail.com"
+                  />
+                  <p ref={this.emailLabel} className="label"></p>
+                  <div className="password">
+                    <Password
+                      onBlur={this.handlePasswordBlur}
+                      onFocus={this.handlePasswordFocus}
+                    />
+                    <p ref={this.passwordLabel} className="label"></p>
+                    <Password
+                      onBlur={this.handleSetPasswordBlur}
+                      onFocus={this.handleSetPasswordFocus}
+                      name={"Confirm Password"}
+                    />
+                  </div>
+                  <p ref={this.setPasswordLabel} className="label"></p>
 
-              <Form.Input
-                fluid
-                placeholder="Phone number"
-                className="contact"
-              />
+                  <Form.Input
+                    fluid
+                    placeholder="Phone number"
+                    className="contact"
+                  />
 
-              {/* <div className="contact">
+                  {/* <div className="contact">
                 <Form.Input
                   fluid
                   placeholder="Phone number"
@@ -97,22 +101,25 @@ class SelectField extends Component {
                   fullWidth
                 />
               </div> */}
-              <div className="submit-div flex end">
-                <Button
-                  fluid
-                  size="large"
-                  className="white"
-                  onClick={this.handleBack}
-                >
-                  Back
-                </Button>
-                <Button color="green" fluid size="large">
-                  NEXT
-                </Button>
-              </div>
-            </Form>
-          </Grid.Column>
-        </Grid>
+                  <div className="submit-div flex end">
+                    <Button
+                      fluid
+                      size="large"
+                      className="white"
+                      onClick={this.handleBack}
+                    >
+                      Back
+                    </Button>
+                    <Button color="green" fluid size="large">
+                      NEXT
+                    </Button>
+                  </div>
+                </Form>
+              </Grid.Column>
+            </Grid>
+          </div>
+          <div className="imagesection">{/* <p></p> */}</div>
+        </div>
       </>
     );
   }

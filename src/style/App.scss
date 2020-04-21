@@ -3,7 +3,6 @@
 // Typeface
 @import "common/typeface.scss";
 
-
 .App {
   text-align: center;
   height: 100vh;
@@ -11,43 +10,42 @@
   display: flex;
 }
 
-
 /* Form section  */
 
-.formcontainer{
+.formcontainer {
   width: 30%;
   height: 100%;
   display: inline-block;
 }
-.logocontainer{
+.logocontainer {
   margin: 2rem;
   display: flex;
   justify-content: left;
   align-items: center;
   flex-wrap: wrap;
 }
-.logo-heading{
+.logo-heading {
   padding: 1.5rem;
   display: inline-block;
   color: $primary;
 }
-.logo img{
+.logo img {
   display: inline-block;
   // height: 70px;
   height: 5vh;
 }
 
-.formsection{
+.formsection {
   margin: auto;
 }
-#signup-form-details{
-  color: $primary ;
+#signup-form-details {
+  color: $primary;
 }
 /* Image Section */
-.imagesection{
+.imagesection {
   width: 70%;
   display: inline-block;
   height: 100%;
-  background-image: url('../images/Image1.png');
+  background-image: url("../images/Image1.png");
   background-size: cover;
 }

@@ -15,6 +15,7 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornments from "./password";
 import Password from "./password";
+import Logo from "../common/Logo";
 class LoginForm extends Component {
   constructor() {
     super();
@@ -65,78 +66,84 @@ class LoginForm extends Component {
     console.log(this.state);
     return (
       <>
-        <Grid
-          textAlign="center"
-          style={{ marginTop: "6rem" }}
-          verticalAlign="middle"
-          className="padit"
-        >
-          <Grid.Column style={{ maxWidth: 350 }}>
-            <Header as="h3" color="grey" textAlign="left">
-              LOGIN TO SG ACCOUNT
-            </Header>
-            <Form size="large">
-              <TextField
-                id="outlined-multiline-flexible"
-                label="Email"
-                variant="outlined"
-                onFocus={this.handleEmailFocus}
-                onBlur={this.handleEmailBlur}
-                fullWidth
-                placeholder="farmer@gmail.com"
-              />
-
-              <p ref={this.emailLabel} className="label"></p>
-              <div className="password">
-                <Password
-                  onBlur={this.handlePasswordBlur}
-                  onFocus={this.handlePasswordFocus}
-                />
-              </div>
-              <p ref={this.passwordLabel} className="label"></p>
-              <div className="submit-div flex end">
-                <span>Forgot Password?</span>
-                <Button color="green" fluid size="large">
-                  LOGIN
-                </Button>
-              </div>
-            </Form>
-            <div className="m5">
-              <Header as="h3" color="grey" textAlign="left">
-                LET'S GET STARTED
-              </Header>
-              <div className="signup-div">
+        <div className="container-second">
+          <div className="formcontainer-second">
+            <Logo />
+            <Grid
+              textAlign="center"
+              style={{ marginTop: "6rem" }}
+              verticalAlign="middle"
+              className="padit"
+            >
+              <Grid.Column style={{ maxWidth: 350 }}>
+                <Header as="h3" color="grey" textAlign="left">
+                  LOGIN TO SG ACCOUNT
+                </Header>
                 <Form size="large">
-                  <Form.Input
-                    fluid
-                    placeholder="Enter Your Email ID"
-                    type="email"
-                    value={this.state.signupEmail}
-                    onChange={this.handleChange}
-                    name="signupEmail"
+                  <TextField
+                    id="outlined-multiline-flexible"
+                    label="Email"
+                    variant="outlined"
+                    onFocus={this.handleEmailFocus}
+                    onBlur={this.handleEmailBlur}
+                    fullWidth
+                    placeholder="farmer@gmail.com"
                   />
-                  <div className="checkbox-div">
-                    <Checkbox
-                      label={
-                        <label className="label-font">
-                          I agree with processing of my personal data in
-                          conformity with the Privacy Policy. When clicking on
-                          "Get Started", you also agree with the End User
-                          License Agreement.
-                        </label>
-                      }
+
+                  <p ref={this.emailLabel} className="label"></p>
+                  <div className="password">
+                    <Password
+                      onBlur={this.handlePasswordBlur}
+                      onFocus={this.handlePasswordFocus}
                     />
                   </div>
-                  <div className="flex end">
-                    <Button fluid size="large" onClick={this.handleSignup}>
-                      SIGN UP
+                  <p ref={this.passwordLabel} className="label"></p>
+                  <div className="submit-div flex end">
+                    <span>Forgot Password?</span>
+                    <Button color="green" fluid size="large">
+                      LOGIN
                     </Button>
                   </div>
                 </Form>
-              </div>
-            </div>
-          </Grid.Column>
-        </Grid>
+                <div className="m5">
+                  <Header as="h3" color="grey" textAlign="left">
+                    LET'S GET STARTED
+                  </Header>
+                  <div className="signup-div">
+                    <Form size="large">
+                      <Form.Input
+                        fluid
+                        placeholder="Enter Your Email ID"
+                        type="email"
+                        value={this.state.signupEmail}
+                        onChange={this.handleChange}
+                        name="signupEmail"
+                      />
+                      <div className="checkbox-div">
+                        <Checkbox
+                          label={
+                            <label className="label-font">
+                              I agree with processing of my personal data in
+                              conformity with the Privacy Policy. When clicking
+                              on "Get Started", you also agree with the End User
+                              License Agreement.
+                            </label>
+                          }
+                        />
+                      </div>
+                      <div className="flex end">
+                        <Button fluid size="large" onClick={this.handleSignup}>
+                          SIGN UP
+                        </Button>
+                      </div>
+                    </Form>
+                  </div>
+                </div>
+              </Grid.Column>
+            </Grid>
+          </div>
+          <div className="imagesection">{/* <p></p> */}</div>
+        </div>
       </>
     );
   }
