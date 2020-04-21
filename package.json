@@ -1,0 +1,22 @@
+{
+  "name": "sensegrass-frontend",
+  "version": "1.0.0",
+  "description": "The complete signup system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dtyagi-9/Sensegrass-Frontend.git"
+  },
+  "keywords": [
+    "Sensegrass"
+  ],
+  "author": "Dev Tyagi & Puneet ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dtyagi-9/Sensegrass-Frontend/issues"
+  },
+  "homepage": "https://github.com/Dtyagi-9/Sensegrass-Frontend#readme"
+}
