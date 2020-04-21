@@ -14,8 +14,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 7,
       validator(value) {
-          if(value.toLowerCase().includes("password")){
-          throw new Error('Password contains "password" ')
+          if(value.toLowerCase().includes($(password))){
+          throw new Error('Password contains Username ')
           }
       }
   },
