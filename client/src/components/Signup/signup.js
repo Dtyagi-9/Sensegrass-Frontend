@@ -1,7 +1,7 @@
 import React, { Component, createRef } from "react";
-import { Button, Form, Grid, Header, Checkbox } from "semantic-ui-react";
+import { Button, Form, Grid, Header } from "semantic-ui-react";
 import "./signup.scss";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Password from "../Login/password";
 import Logo from "../common/Logo";

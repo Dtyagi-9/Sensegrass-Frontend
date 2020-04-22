@@ -1,5 +1,5 @@
 import React, { Component, createRef } from "react";
-import { Button, Form, Grid, Header } from "semantic-ui-react";
+import { Button, Header } from "semantic-ui-react";
 import "./Errorpage.scss";
 import { withRouter } from "react-router-dom";
 import Logo from "../common/Logo";

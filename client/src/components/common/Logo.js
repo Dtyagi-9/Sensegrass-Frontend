@@ -6,7 +6,7 @@ export default function Logo() {
     <>
       <div className="logocontainer">
         <div className="logo">
-          <img src={logo}></img>
+          <img src={logo} alt="Sensegrass-logo"></img>
         </div>
         <div>
           <p className="logo-heading">SENSEGRASS</p>
