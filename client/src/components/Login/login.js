@@ -2,9 +2,14 @@ import React, { Component, createRef } from "react";
 import { Button, Form, Grid, Header, Checkbox } from "semantic-ui-react";
 import TextField from "@material-ui/core/TextField";
 import "./login.scss";
-import {  withRouter } from "react-router-dom";
+import {  withRouter , NavLink} from "react-router-dom";
 import Password from "./password";
 import Logo from "../common/Logo";
+// import { Mutation } from "react-apollo";
+// import { SIGNIN_USER } from "../../queries/index";
+
+
+
 class LoginForm extends Component {
   constructor() {
     super();
@@ -35,6 +40,26 @@ class LoginForm extends Component {
   handleSignup = () => {
     this.props.updateEmail(this.state.signupEmail);
     this.props.history.push("/signup");
+  };
+
+  //n
+  handleSubmit = (event, SigninUser) => {
+    event.preventDefault();
+
+    SigninUser().then(async ({ data }) => {
+      // console.log(data);
+      localStorage.setItem("token", data.signinUser.token);
+      await this.props.refetch();
+      this.clearState();
+      this.props.history.push("/");
+    });
+  };
+
+  //n
+  validateForm = () => {
+    const { username, password } = this.state;
+    const isInvalid = !username || !password;
+    return isInvalid;
   };
 
   handleEmailFocus = e =>
@@ -68,32 +93,35 @@ class LoginForm extends Component {
                 <Header as="h3" color="grey" textAlign="left">
                   LOGIN TO SG ACCOUNT
                 </Header>
-                <Form size="large">
-                  <TextField
-                    id="outlined-multiline-flexible"
-                    label="Email"
-                    variant="outlined"
-                    onFocus={this.handleEmailFocus}
-                    onBlur={this.handleEmailBlur}
-                    fullWidth
-                    placeholder="farmer@gmail.com"
-                  />
+              {/* return ( */}
+              <Form size="large">
+              <TextField
+                id="outlined-multiline-flexible"
+                label="Email"
+                variant="outlined"
+                onFocus={this.handleEmailFocus}
+                onBlur={this.handleEmailBlur}
+                fullWidth
+                placeholder="farmer@gmail.com"
+              />
 
-                  <p ref={this.emailLabel} className="label"></p>
-                  <div className="password">
-                    <Password
-                      onBlur={this.handlePasswordBlur}
-                      onFocus={this.handlePasswordFocus}
-                    />
-                  </div>
-                  <p ref={this.passwordLabel} className="label"></p>
-                  <div className="submit-div flex end">
-                    <span>Forgot Password?</span>
-                    <Button color="green" fluid size="large">
-                      LOGIN
-                    </Button>
-                  </div>
-                </Form>
+              <p ref={this.emailLabel} className="label"></p>
+              <div className="password">
+                <Password
+                  onBlur={this.handlePasswordBlur}
+                  onFocus={this.handlePasswordFocus}
+                />
+              </div>
+              <p ref={this.passwordLabel} className="label"></p>
+              <div className="submit-div flex end">
+                <span>Forgot Password?</span>
+                <Button color="green" fluid size="large">
+                  LOGIN
+                </Button>
+              </div>
+            </Form>
+              
+                
                 <div className="m5">
                   <Header as="h3" color="grey" textAlign="left">
                     LET'S GET STARTED
